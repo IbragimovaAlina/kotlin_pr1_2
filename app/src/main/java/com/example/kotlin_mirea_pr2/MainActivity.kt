@@ -63,7 +63,8 @@ class MainActivity : ComponentActivity() {
 
                     // Task6CircleCenterBluePurple()
                     Column(modifier = Modifier.padding(innerPadding)) {
-                        WaterTracker()
+//                        WaterTracker()
+                        ShoppingCartScreen()
                     }
                 }
             }
@@ -74,7 +75,6 @@ class MainActivity : ComponentActivity() {
 // Задание 6
 @Composable
 fun Task6CircleTopRightBlack(modifier: Modifier = Modifier) {
-    // Внешний Box принимает отступы от Scaffold, защищая контент от залезания под статус-бар
     Box(modifier = modifier) {
         Box(
             modifier = Modifier
@@ -125,14 +125,12 @@ private val contacts = listOf(
     Contact("Василий","Егорович","Егоров","+7 495 788 78 78","Ивановская область, дер. Кузово, д. 4"),
     Contact("Людмила","Прокофьевна","Калугина","+7 495 788 78 78","Московская область, г. Люберцы, ул. Хлебникова, д. 43, кв. 290")
 )
-// Скрин 1
 @Composable
 fun ContactColumn(contact: Contact, modifier: Modifier = Modifier) {
     Column(modifier = modifier.fillMaxWidth().padding(16.dp)) {
         Text(text = contact.format())
     }
 }
-// Скрин 2/3: карточка — серый фон, текст по центру
 @Composable
 fun ContactCard(contact: Contact, modifier: Modifier = Modifier) {
     Column(
@@ -143,7 +141,6 @@ fun ContactCard(contact: Contact, modifier: Modifier = Modifier) {
     }
 }
 
-// Скрин 2: список карточек
 @Composable
 fun ContactList(items: List<Contact>, modifier: Modifier = Modifier) {
     Column(
@@ -152,7 +149,6 @@ fun ContactList(items: List<Contact>, modifier: Modifier = Modifier) {
     ) { items.forEach { ContactCard(it) } }
 }
 
-// Скрин 3: Row = текст по центру + произвольная картинка справа
 @Composable
 fun ContactRow(contact: Contact, modifier: Modifier = Modifier) {
     Row(
@@ -169,7 +165,6 @@ fun ContactRow(contact: Contact, modifier: Modifier = Modifier) {
 }
 
 
-// ---- Превью как на скриншотах ----
 @Preview(name = "ContactColumnPreview", showSystemUi = true)
 @Composable
 fun ContactColumnPreview() {
@@ -223,10 +218,7 @@ fun WaterTracker() {
         Spacer(modifier = Modifier.height(24.dp))
 
         Button(
-            // ИСПРАВЛЕНО: было `ButtonDefaults(backgroundColor = ...)`
-            // В Material3 правильный вызов — buttonColors(containerColor = ...)
             colors = ButtonDefaults.buttonColors(containerColor = primaryColor),
-            // ИСПРАВЛЕНО: было `waterCount = 250` — теперь прибавляем 250
             onClick = { waterCount += 250 }
         ) {
             Text(
@@ -265,5 +257,4 @@ fun WaterTracker() {
     }
 }
 
-// Задание 9
 
