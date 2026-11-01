@@ -1,4 +1,4 @@
-package com.example.kotlin_mirea_pr2   // ровно так, с точкой!
+package com.example.kotlin_mirea_pr2  
 
 import android.widget.Toast
 import androidx.compose.foundation.layout.Column
